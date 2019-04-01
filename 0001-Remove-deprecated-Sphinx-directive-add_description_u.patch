@@ -1,0 +1,28 @@
+From 59f423118c498afb8703669b601ad1cdf57bc2bb Mon Sep 17 00:00:00 2001
+From: Mike DePaulo <mikedep333@redhat.com>
+Date: Mon, 1 Apr 2019 09:56:33 -0400
+Subject: [PATCH] Remove deprecated Sphinx directive add_description_unit()
+
+Sphinx 2.0 dropped support for it.
+
+See pytest-dev/pytest#4922
+---
+ docs/conf.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/docs/conf.py b/docs/conf.py
+index 949e231..c64d2d2 100644
+--- a/docs/conf.py
++++ b/docs/conf.py
+@@ -50,7 +50,7 @@ intersphinx_mapping = {
+ 
+ def setup(app):
+     # Allow linking to pytest's confvals.
+-    app.add_description_unit(
++    app.add_object_type(
+         "confval",
+         "pytest-confval",
+         objname="configuration value",
+-- 
+2.21.0
+

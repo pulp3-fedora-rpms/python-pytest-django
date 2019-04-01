@@ -3,12 +3,13 @@
 
 Name:           python-%{pypi_name}
 Version:        3.4.8
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A Django plugin for pytest
 
 License:        BSD-3-Clause
 URL:            https://pytest-django.readthedocs.io/
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Patch0:         0001-Remove-deprecated-Sphinx-directive-add_description_u.patch
 BuildArch:      noarch
  
 BuildRequires:  python3-devel
@@ -47,7 +48,7 @@ Summary:        pytest-django documentation
 Documentation for pytest-django
 
 %prep
-%autosetup -n %{pypi_name}-%{version}
+%autosetup -S git -n %{pypi_name}-%{version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
@@ -77,5 +78,8 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Mon Apr 01 2019 Mike DePaulo <mikedep333@redhat.com> - 3.4.8-2
+- Add patch to fix build with Fedora 31
+
 * Thu Mar 21 2019 Mike DePaulo <mikedep333@redhat.com> - 3.4.8-1
 - Initial package.
