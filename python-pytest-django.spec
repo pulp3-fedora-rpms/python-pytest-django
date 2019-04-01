@@ -9,6 +9,9 @@ Summary:        A Django plugin for pytest
 License:        BSD-3-Clause
 URL:            https://pytest-django.readthedocs.io/
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+# Deprecated sphinx function was removed in sphinx 2.0; breaking F31 builds.
+# Patch replaces it.
+# https://github.com/pytest-dev/pytest-django/pull/714
 Patch0:         0001-Remove-deprecated-Sphinx-directive-add_description_u.patch
 BuildArch:      noarch
  
